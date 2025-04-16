@@ -116,3 +116,13 @@ while True:
         if list[1][1] and ((list[0][0] and list[2][2]) or (list[0][2] and list[0][2]))==sym:
             print("You win!")
             break
+        
+class userClass:
+            
+    
+class comClass:
+    
+class display:
+    #diaplay board
+    for x in list:
+        print(f"{x}\n")
