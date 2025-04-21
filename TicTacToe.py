@@ -41,32 +41,16 @@ while True:
         loop = False
         loop2 = False
                      
-        #check for all vertical in a row
-        i=0
-        while i<3:
-            if (list[0][i] and list[0][i] and list[2][i])==sym:
-                #user wins
-                print("You win!")
-                #exit loop
-                break
-            else:
-                i+=1
-                
-        #check for all horizantal in a row
-        for x in list:
-            if x ==[sym, sym, sym]:
-                print("You win!")
-                #exit loop
-                break
+        
+         #check to see if someone wins
+         if Win.win(comSym)=True       
+        
             
-        #check for diagonal
-        if list[1][1] and ((list[0][0] and list[2][2]) or (list[0][2] and list[0][2]))==sym:
-            print("You win!")
-            break
+        
 #####################################################        
         
 class UserClass:
-    def userMove():
+    def userMove(sym):
         #user move
         while loop==False:
             #get input move
@@ -106,3 +90,29 @@ class Display:
         #diaplay board
         for x in list:
             print(f"{x}\n")
+            
+class Win:
+    def win(sym):
+        #bool for winning
+        win=False
+        
+        #check for all vertical in a row
+        i=0
+        while i<3:
+            if (list[0][i] and list[0][i] and list[2][i])==sym:
+                win=True
+                break
+            else:
+                i+=1
+         #check for all horizantal in a row
+        for x in list:
+            if x ==[sym, sym, sym]:
+                win=True
+                #exit loop
+                break
+         #check for diagonal
+        if list[1][1] and ((list[0][0] and list[2][2]) or (list[0][2] and list[0][2]))==sym:
+            win=True
+        
+        #return bool for win
+        return win
