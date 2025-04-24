@@ -12,8 +12,8 @@ def win(sym):
     win=False
     
     #check for all vertical in a row
-    for i in range(0,3):
-        if (list[0][i]) and (list[1][i]) and (list[2][i])==sym:
+    for i in range(3):
+        if list[0][i]==sym and list[1][i]==sym and list[2][i]==sym:
             win=True
             break
     #check for all horizantal in a row
@@ -23,7 +23,7 @@ def win(sym):
             #exit loop
             break
     #check for diagonal
-    if (list[1][1]) and ((list[0][0] and list[2][2]) or (list[0][2] and list[0][2]))==sym:
+    if list[1][1]==sym and ((list[0][0]==sym and list[2][2]==sym) or (list[0][2]==sym and list[2][0]==sym)):
         win=True
 
     #return bool for win
@@ -37,7 +37,7 @@ def userMove(sym,comSym):
         #get input move
         move=int(input("Enter move: "))
         #see if space is taken
-        if move != (sym or comSym):
+        if move != sym and move !=comSym:
             #add move
             for x in list:
                 y=list.index(x)
@@ -56,7 +56,7 @@ def comMove(comSym,sym):
         #get move
         comMove=random.randint(1,9)
         #see if space is taken
-        if comMove != (sym or comSym):
+        if comMove != sym and comMove !=comSym:
             #add move
             for x in list:
                 y=list.index(x)
@@ -110,7 +110,7 @@ while True:
         #get computer move
         comMove(comSym,sym)
         #check to see if computer wins
-        if win(comSym):
+        if win(comSym)==True:
             print("You lose!")
             break 
         #display board
